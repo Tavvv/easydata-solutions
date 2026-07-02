@@ -1,0 +1,124 @@
+{
+  "nav": {
+    "home": "首页",
+    "about": "关于我们",
+    "services": "服务",
+    "eec": "EEC IT 解决方案",
+    "boi": "BOI 与税收优惠",
+    "cases": "案例研究",
+    "blog": "博客",
+    "contact": "联系我们"
+  },
+  "lang": {
+    "en": "EN",
+    "zh": "中文",
+    "th": "ไทย"
+  },
+  "hero": {
+    "title": "EEC 制造商 IT 基础设施",
+    "subtitle": "春武里 · 罗勇 · 北柳",
+    "description": "为 BOI 批准工厂提供服务器、数据库、网络和硬件解决方案。从新建服务器机房到 MES 集成——我们打造支撑泰国制造业繁荣的 IT 骨干。",
+    "cta_primary": "免费 IT 基础设施评估",
+    "cta_secondary": "查看我们的服务"
+  },
+  "services_section": {
+    "title": "服务",
+    "subtitle": "面向现代制造业的端到端 IT 基础设施",
+    "card_1_title": "服务器与虚拟化",
+    "card_1_desc": "Oracle 数据库集群、VMware 虚拟化和 Windows Server 环境，专为 24/7 工厂运营设计。",
+    "card_2_title": "网络基础设施与安全",
+    "card_2_desc": "工业级网络拓扑、防火墙配置和制造环境网络安全加固。",
+    "card_3_title": "硬件采购与供应",
+    "card_3_desc": "戴尔、惠普、思科和华为硬件采购，具有竞争力的价格和本地保修支持。",
+    "card_4_title": "MES 集成与工厂 IT",
+    "card_4_desc": "制造执行系统 (MES) 集成、移动质量控制仪表板和生产线 IT 支持。"
+  },
+  "eec_section": {
+    "title": "EEC 覆盖范围",
+    "subtitle": "服务所有三个 EEC 省份",
+    "chonburi": "春武里",
+    "chonburi_desc": "Gateway City、林查班、安美德——电动汽车供应链、数据中心和机器人产业集群的所在地。",
+    "rayong": "罗勇",
+    "rayong_desc": "IRPC 生态工业园、玛塔普特——化学回收、石化和数据中心蓬勃发展。",
+    "chachoengsao": "北柳",
+    "chachoengsao_desc": "Gateway City 工业园——本田混合动力汽车供应链和精密制造。",
+    "cta": "探索 EEC IT 解决方案"
+  },
+  "client_section": {
+    "title": "领先制造商信赖之选",
+    "chicony": "群光电能科技",
+    "chicony_desc": "项目金额 435 万泰铢——为 EEC 工厂搭建 Oracle/VMware/Windows Server 环境",
+    "merry": "美律实业",
+    "merry_desc": "项目金额 32 万泰铢——网络基础设施和硬件供应"
+  },
+  "about": {
+    "title": "关于易数据解决方案",
+    "subtitle": "自 2024 年起连接苏州专业经验与泰国制造业",
+    "story": "易数据解决方案成立于 2024 年，是一家总部位于泰国的 IT 基础设施提供商，根植于中国苏州。我们专门为东部经济走廊的 BOI 批准制造商构建工厂级 IT 环境。",
+    "team_title": "团队与架构",
+    "team_desc": "股东-经营者模式，具备中英泰三语能力。精简团队、直接问责、快速响应。",
+    "languages_title": "语言能力",
+    "languages_desc": "英语、中文（简体）、泰语——我们讲您的工程师、采购团队和本地操作员的语言。"
+  },
+  "boi": {
+    "title": "BOI 与税收优惠",
+    "subtitle": "您的 IT 基础设施支出如何符合 BOI 促进条件",
+    "section_1_title": "IT 基础设施是否符合 BOI 条件？",
+    "section_1_desc": "是的。根据 BOI 第 7.13 类（软件和数字服务），IT 基础设施支出包括服务器、数据库、网络设备和 MES 软件，可获得 BOI 投资促进。",
+    "section_2_title": "税收激励结构",
+    "section_2_desc": "经 BOI 促进的项目可根据活动类别和地点获得 3-8 年的企业所得税豁免。EEC 项目还可获得额外激励。",
+    "section_3_title": "FastPass 项目对接",
+    "section_3_desc": "泰国 FastPass 计划加速战略项目的 BOI 批准。预先规划 IT 基础设施——包括供应商选择、服务器机房布局和网络拓扑——是 FastPass 申请者的关键要求。",
+    "cta": "下载 BOI IT 基础设施检查清单"
+  },
+  "cases": {
+    "title": "案例研究",
+    "subtitle": "真实项目，真实成果",
+    "chicony_title": "群光电能科技",
+    "chicony_desc": "为 EEC 新建 BOI 批准制造设施提供完整 IT 基础设施搭建。交付 Oracle 数据库、VMware 集群、Windows Server 环境和网络安全。",
+    "chicony_scope": "范围：Oracle 数据库、VMware ESXi、Windows Server、防火墙、网络拓扑",
+    "chicony_value": "项目金额：435 万泰铢",
+    "chicony_duration": "工期：8 周",
+    "merry_title": "美律实业",
+    "merry_desc": "为 EEC 现有工厂进行网络基础设施升级和硬件采购。",
+    "merry_scope": "范围：网络交换机升级、Wi-Fi 6 部署、硬件供应",
+    "merry_value": "项目金额：32 万泰铢",
+    "merry_duration": "工期：2 周"
+  },
+  "blog": {
+    "title": "博客",
+    "subtitle": "EEC 制造业 IT 最新洞察",
+    "read_more": "阅读更多",
+    "post_1_title": "泰国 31 亿美元数据中心繁荣对 EEC 制造商意味着什么",
+    "post_1_desc": "BOI 于 2026 年 1 月批准了 968.8 亿泰铢的数据中心项目。以下是它对您工厂 IT 规划的影响。",
+    "post_2_title": "BOI FastPass：如何构建 IT 基础设施以加速批准",
+    "post_2_desc": "FastPass 是新的，且现有指南很少。以下是使您的 IT 支出与 FastPass 要求对齐的实用检查清单。",
+    "post_3_title": "春武里新建 BOI 工厂 IT 基础设施检查清单",
+    "post_3_desc": "从服务器机房冷却到 Oracle 许可——每个新工厂在破土动工前需要规划的内容。",
+    "post_4_title": "泰国制造业 Oracle 与 VMware 服务器搭建：案例研究",
+    "post_4_desc": "我们如何在 8 周内为群光电能科技构建生产级 Oracle/VMware 环境。",
+    "post_5_title": "罗仙人形机器人集群：精密制造的 IT 要求",
+    "post_5_desc": "旭升、赛宁和三花都在罗勇建厂。以下是他们需要的 IT 基础设施。",
+    "post_6_title": "电动汽车供应链 IT：从比亚迪到日立安斯泰莫在 EEC",
+    "post_6_desc": "电动汽车供应链是 EEC 制造业增长最快的领域。以下是 IT 骨干检查清单。"
+  },
+  "contact": {
+    "title": "联系我们",
+    "subtitle": "讨论您的工厂 IT 需求",
+    "form_name": "姓名",
+    "form_email": "邮箱",
+    "form_company": "公司",
+    "form_message": "留言",
+    "form_submit": "发送消息",
+    "email": "info@easydatasolutions.co.th",
+    "phone": "+66 (0) 2-XXX-XXXX",
+    "location": "泰国 EEC 地区（春武里 / 罗勇 / 北柳）",
+    "wechat_title": "微信",
+    "wechat_desc": "扫码添加微信"
+  },
+  "footer": {
+    "tagline": "EEC 制造商 IT 基础设施",
+    "copyright": "© 2024–2026 易数据解决方案有限公司 版权所有。",
+    "made_in": "为 EEC 制造商打造的泰国本土服务"
+  }
+}
