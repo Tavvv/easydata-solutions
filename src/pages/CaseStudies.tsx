@@ -94,16 +94,12 @@ export default function CaseStudies() {
             </div>
           </div>
 
-          {/* Placeholders */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-surface rounded-xl border border-border border-dashed p-8 text-center">
-              <p className="text-text-muted font-medium">More case studies coming soon</p>
-              <p className="text-sm text-text-muted mt-1">MES integration & factory digitalization</p>
-            </div>
-            <div className="bg-surface rounded-xl border border-border border-dashed p-8 text-center">
-              <p className="text-text-muted font-medium">More case studies coming soon</p>
-              <p className="text-sm text-text-muted mt-1">Network security & data center projects</p>
-            </div>
+          {/* Placeholder removed — case study blog post awaiting client approval before publication */}
+          <div className="bg-warning/10 rounded-xl border border-warning/30 p-6 md:p-8 text-center">
+            <p className="text-warning font-medium">Additional case studies in development</p>
+            <p className="text-sm text-text-muted mt-1">
+              Detailed project write-ups are prepared with client approval before publication.
+            </p>
           </div>
         </div>
       </section>
