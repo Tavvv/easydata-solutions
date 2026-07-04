@@ -10,7 +10,6 @@ const navItems = [
   { key: 'nav.services', path: '/services' },
   { key: 'nav.eec', path: '/eec-it-solutions' },
   { key: 'nav.boi', path: '/boi-incentives' },
-  { key: 'nav.cases', path: '/case-studies' },
   { key: 'nav.blog', path: '/blog' },
   { key: 'nav.contact', path: '/contact' },
 ];

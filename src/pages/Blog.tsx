@@ -48,6 +48,50 @@ const posts: BlogPost[] = [
     author: 'EDS Technical Team',
     readTime: '7 min',
   },
+  {
+    id: 5,
+    slug: 'robot-cluster',
+    title: 'The Humanoid Robot Cluster in Rayong: IT Requirements for Precision Manufacturing',
+    excerpt: 'Xusheng, Seenpin, and Sanhua are building Thailand\'s first humanoid robot cluster in Rayong. Here is the IT infrastructure they need for micron-level precision manufacturing.',
+    category: 'Manufacturing Digitalization',
+    image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&h=400&fit=crop&q=80',
+    date: 'July 2026',
+    author: 'EDS Intelligence Unit',
+    readTime: '7 min',
+  },
+  {
+    id: 6,
+    slug: 'ev-supply-chain',
+    title: 'EV Supply Chain IT: From BYD to Hitachi Astemo in the EEC',
+    excerpt: 'Thailand\'s EV market is growing at 12.17% CAGR. Here is the IT backbone checklist for automotive Tier-1 and Tier-2 suppliers setting up in Chonburi, Rayong, and Chachoengsao.',
+    category: 'EEC News',
+    image: 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=600&h=400&fit=crop&q=80',
+    date: 'July 2026',
+    author: 'EDS Intelligence Unit',
+    readTime: '7 min',
+  },
+  {
+    id: 7,
+    slug: '5g-wifi6',
+    title: 'Private 5G and Wi-Fi 6 for Thai Factories: What Manufacturers Need to Know',
+    excerpt: 'Next-generation wireless is transforming factory floors. We compare Private 5G and Wi-Fi 6 use cases, costs, timelines, and ROI for manufacturing environments in the EEC.',
+    category: 'IT Infrastructure Guides',
+    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop&q=80',
+    date: 'July 2026',
+    author: 'EDS Technical Team',
+    readTime: '7 min',
+  },
+  {
+    id: 8,
+    slug: 'mes-integration',
+    title: 'MES Integration for Thai Electronics Manufacturers: A Practical Guide',
+    excerpt: 'A 4-phase implementation roadmap for manufacturing execution systems. From vendor selection to digitalization, with cost ranges and common pitfalls to avoid.',
+    category: 'Manufacturing Digitalization',
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2aefe0503?w=600&h=400&fit=crop&q=80',
+    date: 'July 2026',
+    author: 'EDS Technical Team',
+    readTime: '7 min',
+  },
 ];
 
 const categories = ['EEC News', 'BOI Updates', 'IT Infrastructure Guides', 'Manufacturing Digitalization'];
@@ -137,7 +181,56 @@ export default function Blog() {
       <section className="py-8 md:py-12 bg-surface">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {posts.slice(1).map((post) => (
+            {posts.slice(1, 3).map((post) => (
+              <div
+                key={post.id}
+                className="bg-white rounded-xl border border-border overflow-hidden shadow-sm hover:shadow-xl hover:border-accent/30 transition-all duration-300 flex flex-col"
+              >
+                <div className="h-48 relative">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-3 left-3">
+                    <span className="px-2.5 py-1 rounded-full bg-accent text-white text-xs font-semibold">
+                      {post.category}
+                    </span>
+                  </div>
+                </div>
+                <div className="p-5 flex-1 flex flex-col">
+                  <div className="flex items-center gap-3 text-xs text-text-muted mb-3">
+                    <span className="flex items-center gap-1">
+                      <Calendar className="w-3 h-3" />
+                      {post.date}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Clock className="w-3 h-3" />
+                      {post.readTime}
+                    </span>
+                  </div>
+                  <h3 className="text-lg font-bold text-primary mb-2 leading-snug">{post.title}</h3>
+                  <p className="text-sm text-text-muted mb-4 flex-1 leading-relaxed">{post.excerpt}</p>
+                  <Link
+                    to={`/${lang}/blog`}
+                    className="inline-flex items-center gap-1 text-sm font-semibold text-accent hover:underline"
+                  >
+                    {t('blog.read_more')}
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Post Grid (Posts 5-8) */}
+      <section className="py-8 md:py-12">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {posts.slice(3).map((post) => (
               <div
                 key={post.id}
                 className="bg-white rounded-xl border border-border overflow-hidden shadow-sm hover:shadow-xl hover:border-accent/30 transition-all duration-300 flex flex-col"

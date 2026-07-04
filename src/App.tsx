@@ -12,7 +12,6 @@ import About from './pages/About';
 import Services from './pages/Services';
 import EECPage from './pages/EECPage';
 import BOIPage from './pages/BOIPage';
-import CaseStudies from './pages/CaseStudies';
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
 
@@ -50,7 +49,6 @@ function AppContent() {
           <Route path="/:lang/services" element={<Services />} />
           <Route path="/:lang/eec-it-solutions" element={<EECPage />} />
           <Route path="/:lang/boi-incentives" element={<BOIPage />} />
-          <Route path="/:lang/case-studies" element={<CaseStudies />} />
           <Route path="/:lang/blog" element={<Blog />} />
           <Route path="/:lang/contact" element={<Contact />} />
           <Route path="/" element={<Navigate to="/en" replace />} />
