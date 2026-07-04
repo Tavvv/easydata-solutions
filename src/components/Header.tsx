@@ -50,7 +50,7 @@ export default function Header() {
             <img
               src="/favicon.png"
               alt="Easy Data Solutions"
-              className="h-9 w-9 rounded-lg object-contain"
+              className="h-14 w-14 rounded-lg object-contain"
             />
             <div className="flex flex-col">
               <span className="text-xl font-bold text-[#1a237e]">Easy Data Solutions</span>
