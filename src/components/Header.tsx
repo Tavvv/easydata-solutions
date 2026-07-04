@@ -46,9 +46,16 @@ export default function Header() {
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to={`/${currentLang}`} className="flex flex-col">
-            <span className="text-xl font-bold text-[#1a237e]">Easy Data Solutions</span>
-            <span className="text-xs text-[#5a5a6e]">IT Infrastructure | EEC Thailand</span>
+          <Link to={`/${currentLang}`} className="flex items-center gap-2.5">
+            <img
+              src="/favicon.png"
+              alt="Easy Data Solutions"
+              className="h-9 w-9 rounded-lg object-contain"
+            />
+            <div className="flex flex-col">
+              <span className="text-xl font-bold text-[#1a237e]">Easy Data Solutions</span>
+              <span className="text-xs text-[#5a5a6e]">IT Infrastructure | EEC Thailand</span>
+            </div>
           </Link>
 
           {/* Desktop Nav */}
