@@ -46,7 +46,7 @@
   },
   "client_section": {
     "title": "Trusted by Leading Manufacturers",
-    "chicony": "Chicony Power Technology",
+    "chicony": "Leading Electronics Manufacturer",
     "chicony_desc": "THB 4.35M project — Oracle/VMware/Windows Server setup for EEC facility",
     "merry": "Merry Electronics",
     "merry_desc": "THB 320K — Network infrastructure and hardware supply"
@@ -74,7 +74,7 @@
   "cases": {
     "title": "Case Studies",
     "subtitle": "Real projects, real results",
-    "chicony_title": "Chicony Power Technology",
+    "chicony_title": "Leading Electronics Manufacturer",
     "chicony_desc": "Complete IT infrastructure setup for a new BOI-approved manufacturing facility in the EEC. Delivered Oracle database, VMware cluster, Windows Server environment, and network security.",
     "chicony_scope": "Scope: Oracle DB, VMware ESXi, Windows Server, firewall, network topology",
     "chicony_value": "Project Value: THB 4,350,000",
@@ -96,7 +96,7 @@
     "post_3_title": "IT Infrastructure Checklist for New BOI Factories in Chonburi",
     "post_3_desc": "From server room cooling to Oracle licensing — what every new factory needs to plan before groundbreaking.",
     "post_4_title": "Oracle & VMware Server Setup for Thai Manufacturing: A Case Study",
-    "post_4_desc": "How we built a production-ready Oracle/VMware environment for Chicony Power Technology in 8 weeks.",
+    "post_4_desc": "How we built a production-ready Oracle/VMware environment for a leading manufacturer in 8 weeks.",
     "post_5_title": "The Humanoid Robot Cluster in Rayong: IT Requirements for Precision Manufacturing",
     "post_5_desc": "Xusheng, Seenpin, and Sanhua are all building in Rayong. Here's the IT infrastructure they need.",
     "post_6_title": "EV Supply Chain IT: From BYD to Hitachi Astemo in the EEC",

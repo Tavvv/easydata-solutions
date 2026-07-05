@@ -20,7 +20,7 @@ export default function CaseStudies() {
       {/* Case Studies */}
       <section className="py-16 md:py-20">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          {/* Chicony */}
+          {/* Leading Electronics Manufacturer */}
           <div className="bg-white rounded-xl border border-border p-6 md:p-10 shadow-sm">
             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
               <div>
