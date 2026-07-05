@@ -15,39 +15,55 @@
     "th": "ไทย"
   },
   "hero": {
-    "title": "IT Infrastructure for EEC Manufacturers",
-    "subtitle": "Chonburi · Rayong · Chachoengsao",
-    "description": "Server, Database, Network & Hardware Solutions for BOI-Approved Factories. From greenfield server rooms to MES integration — we build the IT backbone that powers Thailand's manufacturing boom.",
-    "cta_primary": "Free IT Infrastructure Assessment",
-    "cta_secondary": "View Our Services"
+    "label": "BOI-APPROVED \u2022 EEC COVERAGE",
+    "title": "IT Infrastructure That Keeps Thailand's Factories Running 24/7",
+    "subtitle": "Chonburi \u00b7 Rayong \u00b7 Chachoengsao",
+    "description": "Complete server, database, network, and hardware solutions for BOI-approved manufacturers. From blank-slate server rooms to fully integrated MES systems \u2014 we build the IT backbone that powers Thailand's manufacturing boom.",
+    "cta_primary": "Get a Free Assessment",
+    "cta_secondary": "Explore Our Services"
+  },
+  "trust_bar": {
+    "boi_badge": "BOI-Approved Supplier",
+    "experience": "Years Active",
+    "support": "24/7 Support",
+    "factories": "Factories Served"
   },
   "services_section": {
-    "title": "Services",
-    "subtitle": "End-to-end IT infrastructure for modern manufacturing",
+    "label": "WHAT WE DO",
+    "title": "End-to-End IT Infrastructure for Modern Manufacturing",
+    "subtitle": "Designed, deployed, and supported by Thai engineers who understand the 24/7 reality of factory floors.",
     "card_1_title": "Server & Virtualization",
-    "card_1_desc": "Oracle database clusters, VMware virtualization, and Windows Server environments designed for 24/7 factory operations.",
-    "card_2_title": "Network Infrastructure & Security",
-    "card_2_desc": "Industrial-grade network topology, firewall configuration, and cybersecurity hardening for manufacturing environments.",
-    "card_3_title": "Hardware Procurement & Supply",
-    "card_3_desc": "Dell, HP, Cisco, and Huawei hardware sourcing with competitive pricing and local warranty support.",
-    "card_4_title": "MES Integration & Factory IT",
-    "card_4_desc": "Manufacturing Execution System (MES) integration, mobile QC dashboards, and production line IT support."
+    "card_1_desc": "Oracle clusters, VMware virtualization, and Windows Server environments engineered for zero-downtime factory operations.",
+    "card_2_title": "Network & Security",
+    "card_2_desc": "Industrial-grade networks, hardened firewalls, and manufacturing-focused cybersecurity \u2014 built to protect your production line.",
+    "card_3_title": "Hardware Procurement",
+    "card_3_desc": "Enterprise hardware from Dell, HP, Cisco, and Huawei \u2014 sourced at competitive rates with full local warranty support.",
+    "card_4_title": "MES & Factory IT",
+    "card_4_desc": "MES integration, mobile QC dashboards, and on-site production line IT support \u2014 from deployment to daily operations.",
+    "cta": "Explore all services"
   },
   "eec_section": {
-    "title": "EEC Coverage",
-    "subtitle": "Serving all three EEC provinces",
+    "label": "EEC COVERAGE",
+    "title": "Serving All Three EEC Provinces",
+    "subtitle": "On-site IT infrastructure delivery across Thailand's Eastern Economic Corridor.",
     "chonburi": "Chonburi",
-    "chonburi_desc": "Gateway City, Laem Chabang, Amata City — home to EV supply chain, data centers, and robotics clusters.",
+    "chonburi_desc": "Gateway City, Laem Chabang, Amata City \u2014 home to EV supply chain, data centers, and robotics clusters.",
     "rayong": "Rayong",
-    "rayong_desc": "IRPC Eco-Industrial Zone, Map Ta Phut — chemical recycling, petrochemical, and data center boom.",
+    "rayong_desc": "IRPC Eco-Industrial Zone, Map Ta Phut \u2014 chemical recycling, petrochemical, and data center boom.",
     "chachoengsao": "Chachoengsao",
-    "chachoengsao_desc": "Gateway City Industrial Estate — Honda HEV supply chain and precision manufacturing.",
+    "chachoengsao_desc": "Gateway City Industrial Estate \u2014 Honda HEV supply chain and precision manufacturing.",
     "cta": "Explore EEC IT Solutions"
   },
   "client_section": {
+    "label": "PROVEN RESULTS",
     "title": "Trusted by Leading Manufacturers",
     "chicony": "Leading Electronics Manufacturer",
-    "chicony_desc": "Complete IT infrastructure — Oracle/VMware/Windows Server environment for EEC facility"
+    "chicony_desc": "Complete IT infrastructure \u2014 Oracle/VMware/Windows Server environment for EEC facility"
+  },
+  "partners": {
+    "label": "TECHNOLOGIES WE MASTER",
+    "title": "Enterprise Partners & Technologies",
+    "subtitle": "We are authorized partners and certified engineers for all major enterprise IT brands."
   },
   "about": {
     "title": "About Easy Data Solutions",
@@ -56,7 +72,7 @@
     "team_title": "Team & Structure",
     "team_desc": "Shareholder-operator model with bilingual English-Chinese-Thai capability. Lean team, direct accountability, fast response times.",
     "languages_title": "Languages",
-    "languages_desc": "English, Chinese (Simplified), Thai — we speak the languages of your engineers, your procurement team, and your local operators."
+    "languages_desc": "English, Chinese (Simplified), Thai \u2014 we speak the languages of your engineers, your procurement team, and your local operators."
   },
   "boi": {
     "title": "BOI & Tax Incentives",
@@ -64,9 +80,9 @@
     "section_1_title": "Does IT Infrastructure Qualify for BOI?",
     "section_1_desc": "Yes. Under BOI Category 7.13 (Software and Digital Services), IT infrastructure spend including servers, databases, network equipment, and MES software can qualify for BOI investment promotion.",
     "section_2_title": "Tax Incentive Structures",
-    "section_2_desc": "BOI-promoted projects can receive corporate income tax exemption for 3–8 years, depending on the activity category and location. EEC projects receive additional incentives.",
+    "section_2_desc": "BOI-promoted projects can receive corporate income tax exemption for 3\u20138 years, depending on the activity category and location. EEC projects receive additional incentives.",
     "section_3_title": "FastPass Program Alignment",
-    "section_3_desc": "Thailand's FastPass program accelerates BOI approval for strategic projects. Having your IT infrastructure pre-planned — including vendor selection, server room layout, and network topology — is a key requirement for FastPass applicants.",
+    "section_3_desc": "Thailand's FastPass program accelerates BOI approval for strategic projects. Having your IT infrastructure pre-planned \u2014 including vendor selection, server room layout, and network topology \u2014 is a key requirement for FastPass applicants.",
     "cta": "Download IT Infrastructure Checklist for BOI"
   },
   "cases": {
@@ -87,7 +103,7 @@
     "post_2_title": "BOI FastPass: How to Structure IT Infrastructure for Accelerated Approval",
     "post_2_desc": "FastPass is new, and few guides exist. Here's a practical checklist for aligning your IT spend with FastPass requirements.",
     "post_3_title": "IT Infrastructure Checklist for New BOI Factories in Chonburi",
-    "post_3_desc": "From server room cooling to Oracle licensing — what every new factory needs to plan before groundbreaking.",
+    "post_3_desc": "From server room cooling to Oracle licensing \u2014 what every new factory needs to plan before groundbreaking.",
     "post_4_title": "Oracle & VMware Server Setup for Thai Manufacturing: A Case Study",
     "post_4_desc": "How we built a production-ready Oracle/VMware environment for a leading manufacturer in 8 weeks.",
     "post_5_title": "The Humanoid Robot Cluster in Rayong: IT Requirements for Precision Manufacturing",
@@ -111,7 +127,7 @@
   },
   "footer": {
     "tagline": "IT Infrastructure for EEC Manufacturers",
-    "copyright": "© 2024–2026 Easy Data Solutions Co., Ltd. All rights reserved.",
+    "copyright": "\u00a9 2024\u20132026 Easy Data Solutions Co., Ltd. All rights reserved.",
     "made_in": "Made in Thailand for EEC Manufacturers"
   }
 }

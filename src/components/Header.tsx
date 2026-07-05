@@ -42,7 +42,7 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? 'glass-header shadow-sm' : 'bg-transparent'
+        scrolled ? 'glass-header' : 'bg-transparent'
       }`}
     >
       <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
@@ -72,7 +72,7 @@ export default function Header() {
                 to={`/${currentLang}${item.path}`}
                 className={`relative px-3 py-2 text-[13px] font-medium transition-colors duration-300 rounded ${
                   isActive(item.path)
-                    ? 'text-accent'
+                    ? 'text-[#3C8CC8]'
                     : 'text-text-secondary hover:text-text'
                 }`}
               >
@@ -80,7 +80,7 @@ export default function Header() {
                 {isActive(item.path) && (
                   <motion.div
                     layoutId="activeNav"
-                    className="absolute bottom-0 left-3 right-3 h-[2px] bg-accent rounded-full"
+                    className="absolute bottom-0 left-3 right-3 h-[2px] bg-[#3C8CC8] rounded-full"
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -88,14 +88,14 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Right side: theme toggle + language switcher */}
+          {/* Right side */}
           <div className="hidden lg:flex items-center gap-3">
             <div className="w-px h-4 bg-border" />
             <ThemeToggle />
             <LanguageSwitcher />
           </div>
 
-          {/* Mobile Hamburger */}
+          {/* Mobile */}
           <div className="flex items-center gap-2 lg:hidden">
             <ThemeToggle />
             <button
@@ -118,7 +118,7 @@ export default function Header() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 bg-dark/50 z-50 backdrop-blur-sm"
+              className="fixed inset-0 bg-[#0A1628]/50 z-50 backdrop-blur-sm"
               onClick={() => setMobileOpen(false)}
             />
             <motion.div
@@ -146,7 +146,7 @@ export default function Header() {
                     onClick={() => setMobileOpen(false)}
                     className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
                       isActive(item.path)
-                        ? 'text-accent bg-accent-subtle'
+                        ? 'text-[#3C8CC8] bg-[#3C8CC8]/10'
                         : 'text-text-secondary hover:text-text hover:bg-surface-elevated'
                     }`}
                   >
