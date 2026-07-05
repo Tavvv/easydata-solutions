@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ChevronDown, Download, ArrowRight } from 'lucide-react';
+import { ChevronDown, Download, ArrowUpRight } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import AnimatedSection, { StaggerContainer, StaggerItem } from '../components/AnimatedSection';
 
 const faqs = [
   {
@@ -57,96 +59,123 @@ export default function BOIPage() {
     })),
   };
 
+  const sections = [
+    { title: t('boi.section_1_title'), desc: t('boi.section_1_desc'), num: '01' },
+    { title: t('boi.section_2_title'), desc: t('boi.section_2_desc'), num: '02' },
+    { title: t('boi.section_3_title'), desc: t('boi.section_3_desc'), num: '03' },
+  ];
+
   return (
     <div>
       <script type="application/ld+json">{JSON.stringify(schema)}</script>
 
       {/* Hero */}
-      <section className="bg-surface py-16 md:py-24">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4">{t('boi.title')}</h1>
-          <p className="text-lg md:text-xl text-text-muted max-w-2xl mx-auto">{t('boi.subtitle')}</p>
+      <section className="relative min-h-[50vh] flex items-center bg-dark overflow-hidden">
+        <div className="absolute inset-0 grid-pattern opacity-30" />
+        <div className="absolute inset-0 noise-texture" />
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-8 relative z-10 py-32">
+          <AnimatedSection>
+            <div className="editorial-line mb-8" />
+            <h1 className="text-display text-bg max-w-3xl mb-6">{t('boi.title')}</h1>
+            <p className="text-body-large text-text-secondary max-w-2xl">{t('boi.subtitle')}</p>
+          </AnimatedSection>
         </div>
       </section>
 
-      {/* Section 1 */}
-      <section className="py-16 md:py-20">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">{t('boi.section_1_title')}</h2>
-            <p className="text-text-muted leading-relaxed">{t('boi.section_1_desc')}</p>
-          </div>
-        </div>
-      </section>
+      {/* Three sections — Editorial layout */}
+      <section className="section-padded bg-bg">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
+          <AnimatedSection className="mb-16">
+            <div className="editorial-line mb-6" />
+            <h2 className="text-heading text-text mb-4">Understanding BOI for IT</h2>
+            <p className="text-body text-text-secondary max-w-xl">
+              Three key areas every manufacturer should understand when planning IT infrastructure in Thailand.
+            </p>
+          </AnimatedSection>
 
-      {/* Section 2 */}
-      <section className="bg-surface py-16 md:py-20">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">{t('boi.section_2_title')}</h2>
-            <p className="text-text-muted leading-relaxed">{t('boi.section_2_desc')}</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 3 */}
-      <section className="py-16 md:py-20">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">{t('boi.section_3_title')}</h2>
-            <p className="text-text-muted leading-relaxed">{t('boi.section_3_desc')}</p>
-          </div>
+          <StaggerContainer className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {sections.map((s, idx) => (
+              <StaggerItem key={idx}>
+                <div className="group bg-surface-elevated border border-border rounded-lg p-8 lg:p-10 card-hover h-full">
+                  <span className="text-display text-accent/20 font-bold tracking-tight">{s.num}</span>
+                  <h3 className="text-subheading text-text mt-4 mb-4">{s.title}</h3>
+                  <p className="text-body text-text-secondary leading-relaxed">{s.desc}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="bg-surface py-16 md:py-20">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">Frequently Asked Questions</h2>
-          <div className="max-w-3xl mx-auto space-y-4">
+      <section className="section-padded bg-surface border-y border-border">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
+          <AnimatedSection className="mb-12">
+            <div className="editorial-line mb-6" />
+            <h2 className="text-heading text-text mb-4">Frequently Asked Questions</h2>
+            <p className="text-body text-text-secondary max-w-xl">
+              Common questions about BOI qualification, tax incentives, and IT infrastructure requirements.
+            </p>
+          </AnimatedSection>
+
+          <AnimatedSection className="max-w-3xl mx-auto space-y-3">
             {faqs.map((f, i) => (
-              <div key={i} className="bg-white rounded-lg border border-border overflow-hidden">
+              <div key={i} className="bg-surface-elevated border border-border rounded-lg overflow-hidden">
                 <button
                   onClick={() => toggle(i)}
-                  className="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-surface/50 transition-colors"
+                  className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-surface transition-colors group"
                 >
-                  <span className="font-medium text-text">{f.q}</span>
-                  <ChevronDown className={`w-5 h-5 text-text-muted transition-transform ${openIndex === i ? 'rotate-180' : ''}`} />
+                  <span className="text-body text-text pr-4">{f.q}</span>
+                  <ChevronDown
+                    className={`w-5 h-5 text-text-muted shrink-0 transition-transform duration-300 ${
+                      openIndex === i ? 'rotate-180' : ''
+                    }`}
+                  />
                 </button>
-                {openIndex === i && (
-                  <div className="px-5 pb-4 text-sm text-text-muted leading-relaxed">
-                    {f.a}
-                  </div>
-                )}
+                <AnimatePresence>
+                  {openIndex === i && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-6 pb-5 text-body text-text-secondary leading-relaxed">
+                        {f.a}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             ))}
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-16">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">Prepare your BOI application</h2>
-          <p className="text-text-muted mb-8 max-w-xl mx-auto">
-            Download our IT infrastructure checklist to ensure your BOI application includes all required technical documentation.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button
-              onClick={() => alert('Download coming soon')}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-medium hover:bg-accent/90 transition-colors"
-            >
-              <Download className="w-4 h-4" />
-              {t('boi.cta')}
-            </button>
-            <Link
-              to={`/${lang}/contact`}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-accent text-accent font-medium hover:bg-accent/5 transition-colors"
-            >
-              Talk to an expert
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
+      <section className="section-padded bg-bg">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-8 text-center">
+          <AnimatedSection>
+            <div className="editorial-line mx-auto mb-8" />
+            <h2 className="text-hero text-text mb-6">Prepare your BOI application</h2>
+            <p className="text-body-large text-text-secondary max-w-2xl mx-auto mb-10">
+              Download our IT infrastructure checklist to ensure your BOI application includes all required technical documentation.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <button
+                onClick={() => alert('Download coming soon')}
+                className="btn-primary"
+              >
+                <Download className="w-4 h-4" />
+                {t('boi.cta')}
+              </button>
+              <Link to={`/${lang}/contact`} className="btn-secondary">
+                Talk to an expert
+                <ArrowUpRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
     </div>

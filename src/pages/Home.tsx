@@ -1,19 +1,19 @@
 import { useTranslation } from 'react-i18next';
 import { useParams, Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import {
   Server,
-  Database,
-  Network,
   Shield,
   ShoppingCart,
   Factory,
-  Check,
   MapPin,
   ChevronRight,
   Mail,
   Phone,
   ArrowRight,
+  ArrowUpRight,
 } from 'lucide-react';
+import AnimatedSection, { StaggerContainer, StaggerItem, HeroReveal } from '../components/AnimatedSection';
 
 export default function Home() {
   const { t } = useTranslation();
@@ -21,26 +21,10 @@ export default function Home() {
   const currentLang = lang || 'en';
 
   const services = [
-    {
-      icon: Server,
-      title: t('services_section.card_1_title'),
-      desc: t('services_section.card_1_desc'),
-    },
-    {
-      icon: Shield,
-      title: t('services_section.card_2_title'),
-      desc: t('services_section.card_2_desc'),
-    },
-    {
-      icon: ShoppingCart,
-      title: t('services_section.card_3_title'),
-      desc: t('services_section.card_3_desc'),
-    },
-    {
-      icon: Factory,
-      title: t('services_section.card_4_title'),
-      desc: t('services_section.card_4_desc'),
-    },
+    { icon: Server, key: 'card_1' },
+    { icon: Shield, key: 'card_2' },
+    { icon: ShoppingCart, key: 'card_3' },
+    { icon: Factory, key: 'card_4' },
   ];
 
   const provinces = [
@@ -65,271 +49,286 @@ export default function Home() {
     {
       name: t('client_section.chicony'),
       desc: t('client_section.chicony_desc'),
-      value: null,
       tags: ['Oracle', 'VMware', 'Windows Server'],
-      placeholder: false,
-    },
-    {
-      name: 'Coming Soon',
-      desc: 'New EEC manufacturing clients onboarding in 2025.',
-      value: null,
-      tags: [],
-      placeholder: true,
-    },
-    {
-      name: 'Coming Soon',
-      desc: 'New EEC manufacturing clients onboarding in 2025.',
-      value: null,
-      tags: [],
-      placeholder: true,
-    },
-    {
-      name: 'Coming Soon',
-      desc: 'New EEC manufacturing clients onboarding in 2025.',
-      value: null,
-      tags: [],
-      placeholder: true,
     },
   ];
 
   return (
     <div>
-      {/* Hero Section */}
-      <section className="bg-primary text-white min-h-[70vh] flex items-center justify-center relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-center relative z-10">
-          <div className="animate-fade-in-up">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+      {/* Hero Section — Full viewport, dark, centered, dramatic */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-dark">
+        {/* Background effects */}
+        <div className="absolute inset-0 grid-pattern opacity-50" />
+        <div className="absolute inset-0 noise-texture" />
+
+        {/* Decorative elements */}
+        <div className="absolute top-1/4 left-[10%] w-px h-32 bg-gradient-to-b from-transparent via-accent/20 to-transparent hidden md:block" />
+        <div className="absolute bottom-1/3 right-[15%] w-px h-48 bg-gradient-to-b from-transparent via-accent/20 to-transparent hidden md:block" />
+        <div className="absolute top-[15%] right-[20%] w-2 h-2 rounded-full bg-accent/30 hidden md:block" />
+        <div className="absolute bottom-[25%] left-[25%] w-1.5 h-1.5 rounded-full bg-accent/20 hidden md:block" />
+
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-8 relative z-10 text-center py-32">
+          <HeroReveal delay={0.1}>
+            <div className="editorial-line mx-auto mb-8" />
+          </HeroReveal>
+
+          <HeroReveal delay={0.2}>
+            <h1 className="text-display text-bg max-w-4xl mx-auto mb-6">
               {t('hero.title')}
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-white/80 mb-6">
+          </HeroReveal>
+
+          <HeroReveal delay={0.35}>
+            <p className="text-subheading text-accent-light max-w-2xl mx-auto mb-4">
               {t('hero.subtitle')}
             </p>
-            <p className="text-base sm:text-lg md:text-xl text-white/70 max-w-3xl mx-auto mb-10 leading-relaxed">
+          </HeroReveal>
+
+          <HeroReveal delay={0.5}>
+            <p className="text-body-large text-text-muted max-w-2xl mx-auto mb-12 leading-relaxed">
               {t('hero.description')}
             </p>
+          </HeroReveal>
+
+          <HeroReveal delay={0.65}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 to={`/${currentLang}/contact`}
-                className="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-white font-semibold px-6 py-3 rounded-lg transition-colors"
+                className="btn-primary"
               >
-                <ArrowRight className="w-5 h-5" />
                 {t('hero.cta_primary')}
+                <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 to={`/${currentLang}/services`}
-                className="inline-flex items-center gap-2 border border-white/30 hover:border-white/60 text-white font-semibold px-6 py-3 rounded-lg transition-colors"
+                className="btn-secondary text-bg border-white/20 hover:border-accent hover:text-accent-light"
               >
                 {t('hero.cta_secondary')}
+                <ArrowUpRight className="w-4 h-4" />
               </Link>
+            </div>
+          </HeroReveal>
+
+          {/* Scroll indicator */}
+          <HeroReveal delay={1.2}>
+            <motion.div
+              className="absolute bottom-12 left-1/2 -translate-x-1/2"
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            >
+              <div className="w-6 h-10 rounded-full border border-white/20 flex items-start justify-center pt-2">
+                <div className="w-1 h-2 rounded-full bg-accent-light" />
+              </div>
+            </motion.div>
+          </HeroReveal>
+        </div>
+      </section>
+
+      {/* Services — Asymmetric editorial grid */}
+      <section className="section-padded bg-bg">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
+          <AnimatedSection className="mb-16">
+            <div className="editorial-line mb-6" />
+            <h2 className="text-heading text-text mb-4">{t('services_section.title')}</h2>
+            <p className="text-body-large text-text-secondary max-w-xl">
+              {t('services_section.subtitle')}
+            </p>
+          </AnimatedSection>
+
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            {services.map((service, idx) => (
+              <StaggerItem key={idx}>
+                <div className="group relative bg-surface-elevated border border-border rounded-lg p-8 lg:p-10 card-hover">
+                  <div className="flex items-start gap-6">
+                    <div className="w-12 h-12 rounded-lg bg-accent-subtle flex items-center justify-center shrink-0 group-hover:bg-accent transition-colors duration-500">
+                      <service.icon className="w-5 h-5 text-accent group-hover:text-accent-fg transition-colors duration-500" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-subheading text-text mb-2 group-hover:text-accent transition-colors duration-300">
+                        {t(`services_section.${service.key}_title`)}
+                      </h3>
+                      <p className="text-body text-text-secondary leading-relaxed">
+                        {t(`services_section.${service.key}_desc`)}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <ArrowUpRight className="w-5 h-5 text-accent" />
+                  </div>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+
+          <AnimatedSection delay={0.3} className="mt-12 text-center">
+            <Link
+              to={`/${currentLang}/services`}
+              className="inline-flex items-center gap-2 text-caption font-medium text-accent hover:text-accent-light transition-colors group"
+            >
+              Explore all services
+              <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* EEC Coverage — Split editorial layout */}
+      <section className="section-padded bg-surface border-y border-border">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+            {/* Left: Map visual + heading */}
+            <AnimatedSection className="lg:col-span-5">
+              <div className="editorial-line mb-6" />
+              <h2 className="text-heading text-text mb-4">{t('eec_section.title')}</h2>
+              <p className="text-body-large text-text-secondary mb-10">
+                {t('eec_section.subtitle')}
+              </p>
+
+              {/* Abstract map */}
+              <div className="relative aspect-[4/5] max-w-sm bg-surface-elevated rounded-lg border border-border overflow-hidden">
+                <svg viewBox="0 0 200 250" className="absolute inset-0 w-full h-full opacity-20">
+                  <path
+                    d="M100 20 C110 18, 120 22, 125 30 C130 38, 128 46, 125 54 C122 62, 124 70, 128 78 C132 86, 136 94, 134 102 C132 110, 128 118, 130 126 C132 134, 136 142, 138 150 C140 158, 138 166, 135 174 C132 182, 126 190, 122 198 C118 206, 114 214, 110 222 C106 230, 100 234, 95 230 C90 226, 86 222, 84 216 C82 210, 80 204, 78 198 C76 192, 74 186, 72 180 C70 174, 68 168, 66 162 C64 156, 62 150, 60 144 C58 138, 56 132, 54 126 C52 120, 50 114, 48 108 C46 102, 44 96, 42 90 C40 84, 38 78, 36 72 C34 66, 32 60, 30 54 C28 48, 26 42, 24 36 C22 30, 20 24, 22 20 C24 16, 28 14, 32 12 C36 10, 40 8, 45 7 C50 6, 55 5, 60 5 C65 5, 70 6, 75 8 C80 10, 85 12, 90 14 C95 16, 100 20 Z"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="0.5"
+                    className="text-text-muted"
+                  />
+                </svg>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="relative w-40 h-52">
+                    <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1.5">
+                      <div className="w-3 h-3 rounded-full bg-accent ring-4 ring-accent/20" />
+                      <span className="text-[10px] font-semibold text-text bg-surface-elevated px-2 py-0.5 rounded border border-border">Chonburi</span>
+                    </div>
+                    <div className="absolute top-[55%] left-[65%] flex flex-col items-center gap-1.5">
+                      <div className="w-3 h-3 rounded-full bg-accent-light ring-4 ring-accent-light/20" />
+                      <span className="text-[10px] font-semibold text-text bg-surface-elevated px-2 py-0.5 rounded border border-border">Rayong</span>
+                    </div>
+                    <div className="absolute top-[20%] left-[35%] flex flex-col items-center gap-1.5">
+                      <div className="w-3 h-3 rounded-full bg-text-muted ring-4 ring-text-muted/20" />
+                      <span className="text-[10px] font-semibold text-text bg-surface-elevated px-2 py-0.5 rounded border border-border">Chachoengsao</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Right: Province cards */}
+            <div className="lg:col-span-7 flex flex-col justify-center">
+              <StaggerContainer staggerDelay={0.1} className="space-y-6">
+                {provinces.map((province, idx) => (
+                  <StaggerItem key={idx}>
+                    <div className="group bg-surface-elevated border border-border rounded-lg p-6 lg:p-8 card-hover">
+                      <div className="flex items-start gap-4">
+                        <div className="w-10 h-10 rounded-lg bg-accent-subtle flex items-center justify-center shrink-0">
+                          <MapPin className="w-4 h-4 text-accent" />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-subheading text-text mb-2">{province.name}</h3>
+                          <p className="text-caption text-text-secondary mb-4 leading-relaxed">{province.desc}</p>
+                          <div className="flex flex-wrap gap-2">
+                            {province.estates.map((estate) => (
+                              <span
+                                key={estate}
+                                className="px-2.5 py-1 rounded bg-surface text-caption text-text-secondary border border-border"
+                              >
+                                {estate}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </StaggerItem>
+                ))}
+              </StaggerContainer>
+
+              <AnimatedSection delay={0.4} className="mt-8">
+                <Link
+                  to={`/${currentLang}/eec-it-solutions`}
+                  className="btn-primary"
+                >
+                  {t('eec_section.cta')}
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </AnimatedSection>
             </div>
           </div>
         </div>
-
-        {/* Decorative icons */}
-        <div className="absolute top-10 left-10 opacity-10 hidden md:block">
-          <Server className="w-20 h-20" />
-        </div>
-        <div className="absolute top-20 right-16 opacity-10 hidden md:block">
-          <Database className="w-16 h-16" />
-        </div>
-        <div className="absolute bottom-20 left-20 opacity-10 hidden md:block">
-          <Network className="w-24 h-24" />
-        </div>
-        <div className="absolute bottom-10 right-10 opacity-10 hidden md:block">
-          <Shield className="w-20 h-20" />
-        </div>
       </section>
 
-      {/* Services Overview */}
-      <section className="bg-white py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">
-              {t('services_section.title')}
-            </h2>
-            <p className="text-text-muted text-lg max-w-2xl mx-auto">
-              {t('services_section.subtitle')}
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((service, idx) => (
-              <div
-                key={idx}
-                className="bg-surface rounded-lg p-6 border border-transparent hover:shadow-xl hover:border-accent/30 transition-all duration-300"
-              >
-                <service.icon className="w-10 h-10 text-accent mb-4" />
-                <h3 className="text-xl font-bold text-text mb-2">
-                  {service.title}
-                </h3>
-                <p className="text-text-muted leading-relaxed mb-4">
-                  {service.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-          <div className="text-center mt-10">
-            <Link
-              to={`/${currentLang}/services`}
-              className="inline-flex items-center gap-2 text-accent font-semibold hover:underline"
-            >
-              Explore All Services
-              <ChevronRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Client Proof — Minimal, elegant */}
+      <section className="section-padded bg-bg">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
+          <AnimatedSection className="mb-12 text-center">
+            <div className="editorial-line mx-auto mb-6" />
+            <h2 className="text-heading text-text">{t('client_section.title')}</h2>
+          </AnimatedSection>
 
-      {/* EEC Coverage */}
-      <section className="bg-surface py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">
-              {t('eec_section.title')}
-            </h2>
-            <p className="text-text-muted text-lg max-w-2xl mx-auto">
-              {t('eec_section.subtitle')}
-            </p>
-          </div>
-
-          {/* Simple SVG map representation */}
-          <div className="flex justify-center mb-10">
-            <svg
-              viewBox="0 0 400 600"
-              className="w-64 h-96 md:w-80 md:h-[28rem]"
-              aria-label="EEC Thailand Map"
-            >
-              {/* Thailand outline simplified */}
-              <path
-                d="M200 40 C220 35, 240 50, 250 70 C260 90, 255 110, 245 130 C235 150, 240 170, 250 190 C260 210, 270 230, 265 250 C260 270, 250 290, 255 310 C260 330, 270 350, 275 370 C280 390, 275 410, 270 430 C265 450, 250 470, 240 490 C230 510, 220 530, 210 550 C200 560, 190 550, 185 540 C180 530, 175 520, 170 510 C165 500, 160 490, 155 480 C150 470, 145 460, 140 450 C135 440, 130 430, 125 420 C120 410, 115 400, 110 390 C105 380, 100 370, 95 360 C90 350, 85 340, 80 330 C75 320, 70 310, 65 300 C60 290, 55 280, 50 270 C45 260, 40 250, 35 240 C30 230, 25 220, 20 210 C15 200, 10 190, 5 180 C0 170, 5 160, 10 150 C15 140, 20 130, 25 120 C30 110, 35 100, 40 90 C45 80, 50 70, 55 60 C60 50, 70 40, 80 35 C90 30, 100 25, 110 20 C120 15, 130 10, 140 8 C150 6, 160 5, 170 5 C180 5, 190 10, 200 40 Z"
-                fill="none"
-                stroke="#e2e8f0"
-                strokeWidth="2"
-              />
-              {/* Chonburi circle */}
-              <circle cx="220" cy="210" r="12" fill="#2962ff" opacity="0.8" />
-              <text x="220" y="215" textAnchor="middle" fill="white" fontSize="8" fontWeight="bold">
-                CBI
-              </text>
-              {/* Rayong circle */}
-              <circle cx="250" cy="240" r="12" fill="#1a237e" opacity="0.8" />
-              <text x="250" y="245" textAnchor="middle" fill="white" fontSize="8" fontWeight="bold">
-                RYG
-              </text>
-              {/* Chachoengsao circle */}
-              <circle cx="200" cy="180" r="12" fill="#059669" opacity="0.8" />
-              <text x="200" y="185" textAnchor="middle" fill="white" fontSize="8" fontWeight="bold">
-                CCO
-              </text>
-            </svg>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            {provinces.map((province, idx) => (
-              <div
-                key={idx}
-                className="bg-white rounded-lg p-6 shadow-sm border border-border"
-              >
-                <div className="flex items-center gap-2 mb-3">
-                  <MapPin className="w-5 h-5 text-accent" />
-                  <h3 className="text-xl font-bold text-text">{province.name}</h3>
-                </div>
-                <p className="text-text-muted mb-4">{province.desc}</p>
-                <ul className="space-y-2">
-                  {province.estates.map((estate, eidx) => (
-                    <li key={eidx} className="flex items-center gap-2 text-sm text-text-muted">
-                      <Check className="w-4 h-4 text-success" />
-                      {estate}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-          <div className="text-center">
-            <Link
-              to={`/${currentLang}/eec-it-solutions`}
-              className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-semibold px-6 py-3 rounded-lg transition-colors"
-            >
-              {t('eec_section.cta')}
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Client Proof / Trust Section */}
-      <section className="bg-white py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">
-              {t('client_section.title')}
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {clients.map((client, idx) => (
-              <div
-                key={idx}
-                className={`rounded-lg p-6 border transition-all duration-300 ${
-                  client.placeholder
-                    ? 'bg-surface border-border opacity-60'
-                    : 'bg-white border-border shadow-sm hover:shadow-md'
-                }`}
-              >
-                <h3 className="text-lg font-bold text-text mb-2">{client.name}</h3>
-                <p className="text-text-muted text-sm mb-4">{client.desc}</p>
-                {client.value && (
-                  <div className="inline-flex items-center bg-accent/10 text-accent font-bold px-3 py-1 rounded-full text-sm mb-4">
-                    {client.value}
-                  </div>
-                )}
-                {client.tags.length > 0 && (
+              <StaggerItem key={idx}>
+                <div className="bg-surface-elevated border border-border rounded-lg p-6 card-hover h-full">
+                  <h3 className="text-subheading text-text mb-2">{client.name}</h3>
+                  <p className="text-caption text-text-secondary mb-5 leading-relaxed">{client.desc}</p>
                   <div className="flex flex-wrap gap-2">
-                    {client.tags.map((tag, tidx) => (
+                    {client.tags.map((tag) => (
                       <span
-                        key={tidx}
-                        className="inline-flex items-center gap-1 text-xs bg-success/10 text-success px-2 py-1 rounded"
+                        key={tag}
+                        className="px-2.5 py-1 rounded bg-accent-subtle text-caption text-accent font-medium"
                       >
-                        <Check className="w-3 h-3" />
                         {tag}
                       </span>
                     ))}
                   </div>
-                )}
-              </div>
+                </div>
+              </StaggerItem>
             ))}
-          </div>
+            {[1, 2, 3].map((i) => (
+              <StaggerItem key={`placeholder-${i}`}>
+                <div className="bg-surface border border-dashed border-border rounded-lg p-6 flex flex-col items-center justify-center h-full min-h-[160px]">
+                  <span className="text-caption text-text-muted">New projects coming in 2025</span>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
         </div>
       </section>
 
-      {/* Final CTA Section */}
-      <section className="bg-primary text-white py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to Build Your Factory&apos;s IT Backbone?
-          </h2>
-          <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
-            Free IT Infrastructure Assessment — No Obligation
-          </p>
-          <Link
-            to={`/${currentLang}/contact`}
-            className="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-white font-semibold text-lg px-8 py-4 rounded-lg transition-colors mb-8"
-          >
-            Get Started Today
-            <ArrowRight className="w-5 h-5" />
-          </Link>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-white/70 text-sm">
-            <a
-              href={`mailto:${t('contact.email')}`}
-              className="inline-flex items-center gap-2 hover:text-white transition-colors"
+      {/* Final CTA — Dark, dramatic */}
+      <section className="relative section-padded bg-dark overflow-hidden">
+        <div className="absolute inset-0 grid-pattern opacity-30" />
+        <div className="absolute inset-0 noise-texture" />
+
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-8 relative z-10">
+          <AnimatedSection className="text-center max-w-3xl mx-auto">
+            <div className="editorial-line mx-auto mb-8" />
+            <h2 className="text-hero text-bg mb-6">
+              Ready to Build Your Factory&apos;s IT Backbone?
+            </h2>
+            <p className="text-body-large text-text-secondary mb-10">
+              Free IT Infrastructure Assessment — No Obligation
+            </p>
+            <Link
+              to={`/${currentLang}/contact`}
+              className="btn-primary text-lg px-10 py-4"
             >
+              Get Started Today
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.3} className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-8 text-text-secondary">
+            <a href={`mailto:${t('contact.email')}`} className="flex items-center gap-2 text-caption hover:text-accent-light transition-colors">
               <Mail className="w-4 h-4" />
               {t('contact.email')}
             </a>
-            <span className="inline-flex items-center gap-2">
+            <a href={`tel:${t('contact.phone')}`} className="flex items-center gap-2 text-caption hover:text-accent-light transition-colors">
               <Phone className="w-4 h-4" />
               {t('contact.phone')}
-            </span>
-          </div>
+            </a>
+          </AnimatedSection>
         </div>
       </section>
     </div>

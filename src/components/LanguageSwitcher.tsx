@@ -22,15 +22,15 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-1 bg-surface rounded-full p-1">
       {languages.map((l) => (
         <button
           key={l.code}
           onClick={() => switchLang(l.code)}
-          className={`px-3 py-1 rounded-full text-sm font-medium transition-colors cursor-pointer ${
+          className={`px-2.5 py-1 rounded-full text-[11px] font-medium transition-all duration-300 cursor-pointer ${
             currentLang === l.code
-              ? 'bg-[#2962ff] text-white'
-              : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              ? 'bg-accent text-accent-fg shadow-sm'
+              : 'text-text-muted hover:text-text'
           }`}
           aria-label={t(`lang.${l.code}`)}
         >

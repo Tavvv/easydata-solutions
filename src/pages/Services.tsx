@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
-import { Server, Network, ShoppingCart, Factory, ArrowRight, Check } from 'lucide-react';
+import { Server, Network, ShoppingCart, Factory, ArrowRight, Check, Clock } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import AnimatedSection, { StaggerContainer, StaggerItem } from '../components/AnimatedSection';
 
 const services = [
   {
@@ -61,65 +62,82 @@ export default function Services() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-surface py-16 md:py-24">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4">{t('services_section.title')}</h1>
-          <p className="text-lg md:text-xl text-text-muted max-w-2xl mx-auto">{t('services_section.subtitle')}</p>
+      <section className="relative min-h-[50vh] flex items-center bg-dark overflow-hidden">
+        <div className="absolute inset-0 grid-pattern opacity-30" />
+        <div className="absolute inset-0 noise-texture" />
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-8 relative z-10 py-32">
+          <AnimatedSection>
+            <div className="editorial-line mb-8" />
+            <h1 className="text-display text-bg max-w-3xl mb-6">{t('services_section.title')}</h1>
+            <p className="text-body-large text-text-secondary max-w-2xl">{t('services_section.subtitle')}</p>
+          </AnimatedSection>
         </div>
       </section>
 
-      {/* Service Cards */}
-      <section className="py-16 md:py-20">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {services.map((s) => {
+      {/* Service Cards — Editorial list layout */}
+      <section className="section-padded bg-bg">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
+          <StaggerContainer className="space-y-8">
+            {services.map((s, idx) => {
               const Icon = s.icon;
               return (
-                <div
-                  key={s.key}
-                  className="bg-white rounded-xl border border-border p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow"
-                >
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
-                      <Icon className="w-5 h-5 text-accent" />
+                <StaggerItem key={s.key}>
+                  <div className="group bg-surface-elevated border border-border rounded-lg overflow-hidden card-hover">
+                    <div className="grid grid-cols-1 lg:grid-cols-12">
+                      {/* Left: Icon + Title + Description */}
+                      <div className={`lg:col-span-5 p-8 lg:p-10 ${idx % 2 === 1 ? 'lg:order-2' : ''}`}>
+                        <div className="flex items-center gap-4 mb-6">
+                          <div className="w-12 h-12 rounded-lg bg-accent-subtle flex items-center justify-center group-hover:bg-accent transition-colors duration-500">
+                            <Icon className="w-5 h-5 text-accent group-hover:text-accent-fg transition-colors duration-500" />
+                          </div>
+                          <div>
+                            <h3 className="text-subheading text-text">{t(`services_section.${s.key}_title`)}</h3>
+                          </div>
+                        </div>
+                        <p className="text-body text-text-secondary leading-relaxed mb-6">
+                          {t(`services_section.${s.key}_desc`)}
+                        </p>
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface border border-border text-caption text-text-muted">
+                          <Clock className="w-3 h-3" />
+                          Estimated: {s.timeline}
+                        </div>
+                      </div>
+
+                      {/* Right: Bullet list */}
+                      <div className={`lg:col-span-7 p-8 lg:p-10 bg-surface border-t lg:border-t-0 ${idx % 2 === 1 ? 'lg:border-r' : 'lg:border-l'} border-border`}>
+                        <h4 className="text-label text-text-muted mb-5">What we deliver</h4>
+                        <ul className="space-y-3">
+                          {s.bullets.map((b, i) => (
+                            <li key={i} className="flex items-start gap-3 text-body text-text-secondary">
+                              <Check className="w-4 h-4 text-accent mt-1 shrink-0" />
+                              <span>{b}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
-                    <h3 className="text-xl font-bold text-primary">
-                      {t(`services_section.${s.key}_title`)}
-                    </h3>
                   </div>
-                  <p className="text-text-muted mb-6">{t(`services_section.${s.key}_desc`)}</p>
-                  <ul className="space-y-2 mb-6">
-                    {s.bullets.map((b, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-text">
-                        <Check className="w-4 h-4 text-success mt-0.5 shrink-0" />
-                        <span>{b}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="inline-flex items-center px-3 py-1 rounded-full bg-surface text-xs font-medium text-text-muted">
-                    Estimated: {s.timeline}
-                  </div>
-                </div>
+                </StaggerItem>
               );
             })}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="bg-surface py-16">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">Ready to get started?</h2>
-          <p className="text-text-muted mb-8 max-w-xl mx-auto">
-            Tell us about your project and we will prepare a tailored quote for your factory IT needs.
-          </p>
-          <Link
-            to={`/${lang}/contact`}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-medium hover:bg-accent/90 transition-colors"
-          >
-            Request a Quote
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+      <section className="section-padded bg-surface border-y border-border">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-8 text-center">
+          <AnimatedSection>
+            <div className="editorial-line mx-auto mb-8" />
+            <h2 className="text-hero text-text mb-6">Ready to get started?</h2>
+            <p className="text-body-large text-text-secondary max-w-2xl mx-auto mb-10">
+              Tell us about your project and we will prepare a tailored quote for your factory IT needs.
+            </p>
+            <Link to={`/${lang}/contact`} className="btn-primary">
+              Request a Quote
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </AnimatedSection>
         </div>
       </section>
     </div>

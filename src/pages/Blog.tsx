@@ -1,8 +1,9 @@
 import { useTranslation } from 'react-i18next';
-import { ArrowRight, Calendar, Clock, User } from 'lucide-react';
+import { ArrowRight, Calendar, Clock, User, ArrowUpRight } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import AnimatedSection, { StaggerContainer, StaggerItem } from '../components/AnimatedSection';
 
-interface BlogPost {
+interface BlogPostData {
   id: number;
   slug: string;
   title: string;
@@ -14,7 +15,7 @@ interface BlogPost {
   readTime: string;
 }
 
-const posts: BlogPost[] = [
+const posts: BlogPostData[] = [
   {
     id: 1,
     slug: 'data-center-boom',
@@ -101,24 +102,33 @@ export default function Blog() {
   const location = useLocation();
   const lang = location.pathname.split('/')[1] || 'en';
 
+  const featuredPost = posts[0];
+  const secondaryPosts = posts.slice(1, 3);
+  const gridPosts = posts.slice(3);
+
   return (
     <div>
       {/* Hero */}
-      <section className="bg-primary text-white py-16 md:py-24">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">{t('blog.title')}</h1>
-          <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto">{t('blog.subtitle')}</p>
+      <section className="relative min-h-[40vh] flex items-center bg-dark overflow-hidden">
+        <div className="absolute inset-0 grid-pattern opacity-30" />
+        <div className="absolute inset-0 noise-texture" />
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-8 relative z-10 py-28">
+          <AnimatedSection>
+            <div className="editorial-line mb-8" />
+            <h1 className="text-display text-bg max-w-3xl mb-6">{t('blog.title')}</h1>
+            <p className="text-body-large text-text-secondary max-w-2xl">{t('blog.subtitle')}</p>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* Categories */}
-      <section className="py-8 bg-surface">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap gap-2 justify-center">
+      <section className="py-8 bg-surface border-b border-border">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
+          <div className="flex flex-wrap gap-2">
             {categories.map((cat) => (
               <span
                 key={cat}
-                className="px-4 py-1.5 rounded-full bg-white text-sm font-medium text-text border border-border hover:border-accent hover:text-accent transition-colors cursor-pointer"
+                className="px-3 py-1.5 rounded-full text-caption font-medium text-text-secondary border border-border hover:border-accent hover:text-accent transition-all cursor-pointer"
               >
                 {cat}
               </span>
@@ -127,170 +137,165 @@ export default function Blog() {
         </div>
       </section>
 
-      {/* Featured Post (Post 1) */}
-      <section className="py-8 md:py-12">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-2xl border border-border overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
-            <div className="grid grid-cols-1 lg:grid-cols-2">
-              <div className="h-64 lg:h-auto relative">
-                <img
-                  src={posts[0].image}
-                  alt={posts[0].title}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 rounded-full bg-accent text-white text-xs font-semibold">
-                    {posts[0].category}
-                  </span>
+      {/* Featured Post */}
+      <section className="section-padded bg-bg">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
+          <AnimatedSection>
+            <div className="group bg-surface-elevated border border-border rounded-lg overflow-hidden card-hover">
+              <div className="grid grid-cols-1 lg:grid-cols-2">
+                <div className="relative h-64 lg:h-auto min-h-[320px]">
+                  <img
+                    src={featuredPost.image}
+                    alt={featuredPost.title}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1 rounded-full bg-accent text-accent-fg text-xs font-semibold">
+                      {featuredPost.category}
+                    </span>
+                  </div>
                 </div>
-              </div>
-              <div className="p-6 md:p-10 flex flex-col justify-center">
-                <div className="flex items-center gap-4 text-sm text-text-muted mb-3">
-                  <span className="flex items-center gap-1">
-                    <Calendar className="w-3.5 h-3.5" />
-                    {posts[0].date}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <Clock className="w-3.5 h-3.5" />
-                    {posts[0].readTime}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <User className="w-3.5 h-3.5" />
-                    {posts[0].author}
-                  </span>
+                <div className="p-8 lg:p-10 flex flex-col justify-center">
+                  <div className="flex items-center gap-4 text-caption text-text-muted mb-4">
+                    <span className="flex items-center gap-1">
+                      <Calendar className="w-3.5 h-3.5" />
+                      {featuredPost.date}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Clock className="w-3.5 h-3.5" />
+                      {featuredPost.readTime}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <User className="w-3.5 h-3.5" />
+                      {featuredPost.author}
+                    </span>
+                  </div>
+                  <h2 className="text-hero text-text mb-4 leading-tight">{featuredPost.title}</h2>
+                  <p className="text-body text-text-secondary leading-relaxed mb-6">{featuredPost.excerpt}</p>
+                  <Link
+                    to={`/${lang}/blog/${featuredPost.slug}`}
+                    className="inline-flex items-center gap-2 text-caption font-medium text-accent hover:text-accent-light transition-colors group"
+                  >
+                    {t('blog.read_more')}
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
                 </div>
-                <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 leading-tight">
-                  {posts[0].title}
-                </h2>
-                <p className="text-text-muted mb-6 leading-relaxed">{posts[0].excerpt}</p>
-                <Link
-                  to={`/${lang}/blog/${posts[0].slug}`}
-                  className="inline-flex items-center gap-2 text-accent font-semibold hover:underline self-start"
-                >
-                  {t('blog.read_more')}
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
               </div>
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
-      {/* Post Grid (Posts 2-3) */}
-      <section className="py-8 md:py-12 bg-surface">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {posts.slice(1, 3).map((post) => (
-              <div
-                key={post.id}
-                className="bg-white rounded-xl border border-border overflow-hidden shadow-sm hover:shadow-xl hover:border-accent/30 transition-all duration-300 flex flex-col"
-              >
-                <div className="h-48 relative">
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                  <div className="absolute top-3 left-3">
-                    <span className="px-2.5 py-1 rounded-full bg-accent text-white text-xs font-semibold">
-                      {post.category}
-                    </span>
+      {/* Secondary Posts */}
+      <section className="section-padded-sm bg-surface border-y border-border">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {secondaryPosts.map((post) => (
+              <StaggerItem key={post.id}>
+                <Link to={`/${lang}/blog/${post.slug}`} className="group block">
+                  <div className="bg-surface-elevated border border-border rounded-lg overflow-hidden card-hover h-full flex flex-col">
+                    <div className="relative h-48">
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        className="absolute inset-0 w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                      <div className="absolute top-3 left-3">
+                        <span className="px-2.5 py-1 rounded-full bg-accent text-accent-fg text-[10px] font-semibold">
+                          {post.category}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="p-6 flex-1 flex flex-col">
+                      <div className="flex items-center gap-3 text-caption text-text-muted mb-3">
+                        <span className="flex items-center gap-1">
+                          <Calendar className="w-3 h-3" />
+                          {post.date}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <Clock className="w-3 h-3" />
+                          {post.readTime}
+                        </span>
+                      </div>
+                      <h3 className="text-subheading text-text mb-2 leading-snug group-hover:text-accent transition-colors">{post.title}</h3>
+                      <p className="text-caption text-text-secondary flex-1 leading-relaxed">{post.excerpt}</p>
+                      <div className="mt-4 flex items-center gap-1 text-caption text-accent font-medium">
+                        <span>{t('blog.read_more')}</span>
+                        <ArrowUpRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div className="p-5 flex-1 flex flex-col">
-                  <div className="flex items-center gap-3 text-xs text-text-muted mb-3">
-                    <span className="flex items-center gap-1">
-                      <Calendar className="w-3 h-3" />
-                      {post.date}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Clock className="w-3 h-3" />
-                      {post.readTime}
-                    </span>
-                  </div>
-                  <h3 className="text-lg font-bold text-primary mb-2 leading-snug">{post.title}</h3>
-                  <p className="text-sm text-text-muted mb-4 flex-1 leading-relaxed">{post.excerpt}</p>
-                  <Link
-                    to={`/${lang}/blog/${post.slug}`}
-                    className="inline-flex items-center gap-1 text-sm font-semibold text-accent hover:underline"
-                  >
-                    {t('blog.read_more')}
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
-              </div>
+                </Link>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
-      {/* Post Grid (Posts 5-8) */}
-      <section className="py-8 md:py-12">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {posts.slice(3).map((post) => (
-              <div
-                key={post.id}
-                className="bg-white rounded-xl border border-border overflow-hidden shadow-sm hover:shadow-xl hover:border-accent/30 transition-all duration-300 flex flex-col"
-              >
-                <div className="h-48 relative">
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                  <div className="absolute top-3 left-3">
-                    <span className="px-2.5 py-1 rounded-full bg-accent text-white text-xs font-semibold">
-                      {post.category}
-                    </span>
+      {/* Grid Posts */}
+      <section className="section-padded bg-bg">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {gridPosts.map((post) => (
+              <StaggerItem key={post.id}>
+                <Link to={`/${lang}/blog/${post.slug}`} className="group block">
+                  <div className="bg-surface-elevated border border-border rounded-lg overflow-hidden card-hover h-full flex flex-col">
+                    <div className="relative h-44">
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        className="absolute inset-0 w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                      <div className="absolute top-3 left-3">
+                        <span className="px-2.5 py-1 rounded-full bg-accent text-accent-fg text-[10px] font-semibold">
+                          {post.category}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="p-5 flex-1 flex flex-col">
+                      <div className="flex items-center gap-3 text-caption text-text-muted mb-2">
+                        <span className="flex items-center gap-1">
+                          <Calendar className="w-3 h-3" />
+                          {post.date}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <Clock className="w-3 h-3" />
+                          {post.readTime}
+                        </span>
+                      </div>
+                      <h3 className="text-subheading text-text mb-2 leading-snug group-hover:text-accent transition-colors text-[15px]">{post.title}</h3>
+                      <p className="text-caption text-text-secondary flex-1 leading-relaxed">{post.excerpt}</p>
+                    </div>
                   </div>
-                </div>
-                <div className="p-5 flex-1 flex flex-col">
-                  <div className="flex items-center gap-3 text-xs text-text-muted mb-3">
-                    <span className="flex items-center gap-1">
-                      <Calendar className="w-3 h-3" />
-                      {post.date}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Clock className="w-3 h-3" />
-                      {post.readTime}
-                    </span>
-                  </div>
-                  <h3 className="text-lg font-bold text-primary mb-2 leading-snug">{post.title}</h3>
-                  <p className="text-sm text-text-muted mb-4 flex-1 leading-relaxed">{post.excerpt}</p>
-                  <Link
-                    to={`/${lang}/blog/${post.slug}`}
-                    className="inline-flex items-center gap-1 text-sm font-semibold text-accent hover:underline"
-                  >
-                    {t('blog.read_more')}
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
-              </div>
+                </Link>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
-      {/* Subscribe / CTA */}
-      <section className="py-16">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-primary rounded-2xl p-8 md:p-12 text-white">
-            <h2 className="text-2xl md:text-3xl font-bold mb-3">Stay Ahead of EEC Manufacturing IT</h2>
-            <p className="text-white/80 max-w-xl mx-auto mb-6">
+      {/* CTA */}
+      <section className="section-padded bg-dark relative overflow-hidden">
+        <div className="absolute inset-0 grid-pattern opacity-30" />
+        <div className="absolute inset-0 noise-texture" />
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-8 relative z-10 text-center">
+          <AnimatedSection>
+            <div className="editorial-line mx-auto mb-8" />
+            <h2 className="text-hero text-bg mb-4">Stay Ahead of EEC Manufacturing IT</h2>
+            <p className="text-body text-text-secondary max-w-xl mx-auto mb-10">
               New blog posts every week covering BOI updates, EEC investment trends, and IT infrastructure best practices for Thai manufacturers.
             </p>
             <Link
               to={`/${lang}/contact`}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold hover:bg-accent/90 transition-colors"
+              className="btn-primary"
             >
               Subscribe for Updates
               <ArrowRight className="w-4 h-4" />
             </Link>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
     </div>
