@@ -263,7 +263,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         "type": "paragraph",
-        "text": "At Easy Data Solutions, we have built IT infrastructure for BOI-approved factories in the EEC since 2024. Our reference project (THB 4.35M, Oracle/VMware/Windows Server environment) demonstrates what a production-ready manufacturing IT setup looks like."
+        "text": "At Easy Data Solutions, we have built IT infrastructure for BOI-approved factories in the EEC since 2024. Our reference project (Oracle/VMware/Windows Server environment) demonstrates what a production-ready manufacturing IT setup looks like."
       },
       {
         "type": "paragraph",
@@ -717,7 +717,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         "type": "paragraph",
-        "text": "Our **THB 4.35M project** with a leading electronics manufacturer included Oracle database cluster, VMware virtualization, Windows Server environment, and industrial network security. The project was structured as **BOI-qualifying IT investment**, with full documentation for BOI verification. This is the standard we apply to every FastPass engagement."
+        "text": "Our **reference project** with a leading electronics manufacturer included Oracle database cluster, VMware virtualization, Windows Server environment, and industrial network security. The project was structured as **BOI-qualifying IT investment**, with full documentation for BOI verification. This is the standard we apply to every FastPass engagement."
       },
       {
         "type": "paragraph",
@@ -773,7 +773,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         "type": "paragraph",
-        "text": "If you are a project manager responsible for setting up a new BOI-approved facility in Chonburi, your IT infrastructure decisions in the next 90 days will determine whether your factory launches smoothly or suffers from expensive retrofits. This post is your practical checklist, based on our experience building IT infrastructure for a THB 4.35M project and other EEC manufacturers."
+        "text": "If you are a project manager responsible for setting up a new BOI-approved facility in Chonburi, your IT infrastructure decisions in the next 90 days will determine whether your factory launches smoothly or suffers from expensive retrofits. This post is your practical checklist, based on our experience building IT infrastructure for a reference project and other EEC manufacturers."
       },
       {
         "type": "h2",
@@ -1700,7 +1700,7 @@ export const blogPosts: BlogPost[] = [
         "items": [
           "**Bilingual capability:** Chinese (Mandarin), Thai, and English — our team communicates directly with your China HQ and Thai operations staff.",
           "**BOI expertise:** We structure IT infrastructure as qualifying investment for BOI promotion, with full documentation for FastPass applications.",
-          "**Manufacturing experience:** Our reference project (THB 4.35M, Oracle/VMware/Windows Server) demonstrates production-ready IT delivery.",
+          "**Manufacturing experience:** Our reference project (Oracle/VMware/Windows Server) demonstrates production-ready IT delivery.",
           "**Local support:** Thai-based engineers with 4-hour response time in the EEC."
         ]
       },
@@ -3311,7 +3311,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         "type": "paragraph",
-        "text": "**Reference project:** Our **THB 4.35M reference project** included MES integration with Oracle database, VMware virtualization, and parent-company ERP connectivity. The system has been operational since 2024 with 99.8% uptime."
+        "text": "**Reference project:** Our reference project included MES integration with Oracle database, VMware virtualization, and parent-company ERP connectivity. The system has been operational since 2024 with 99.8% uptime."
       },
       {
         "type": "paragraph",

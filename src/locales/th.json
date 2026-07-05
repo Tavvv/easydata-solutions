@@ -47,9 +47,7 @@
   "client_section": {
     "title": "ได้รับความไว้วางใจจากผู้ผลิตชั้นนำ",
     "chicony": "ผู้ผลิตอิเล็กทรอนิกส์รายใหญ่",
-    "chicony_desc": "โปรเจกต์ 4.35 ล้านบาท — ติดตั้ง Oracle/VMware/Windows Server สำหรับโรงงานใน EEC",
-    "merry": "Merry Electronics",
-    "merry_desc": "3.2 แสนบาท — โครงสร้างพื้นฐานเครือข่ายและจัดหาฮาร์ดแวร์"
+    "chicony_desc": "โครงสร้างพื้นฐาน IT ครบวงจร — ติดตั้ง Oracle/VMware/Windows Server สำหรับโรงงานใน EEC"
   },
   "about": {
     "title": "เกี่ยวกับ Easy Data Solutions",
@@ -77,13 +75,8 @@
     "chicony_title": "ผู้ผลิตอิเล็กทรอนิกส์รายใหญ่",
     "chicony_desc": "การติดตั้งโครงสร้างพื้นฐาน IT อย่างครบถ้วนสำหรับโรงงานผลิตที่ได้รับการส่งเสริมจาก BOI แห่งใหม่ใน EEC ส่งมอบ Oracle ฐานข้อมูล คลัสเตอร์ VMware สภาพแวดล้อม Windows Server และความปลอดภัยทางเครือข่าย",
     "chicony_scope": "ขอบเขต: Oracle DB, VMware ESXi, Windows Server, ไฟร์วอลล์, โทโพลอจีเครือข่าย",
-    "chicony_value": "มูลค่าโปรเจกต์: 4.35 ล้านบาท",
-    "chicony_duration": "ระยะเวลา: 8 สัปดาห์",
-    "merry_title": "Merry Electronics",
-    "merry_desc": "การอัปเกรดโครงสร้างพื้นฐานเครือข่ายและการจัดหาฮาร์ดแวร์สำหรับโรงงานที่มีอยู่ใน EEC",
-    "merry_scope": "ขอบเขต: การอัปเกรดสวิตช์เครือข่าย การติดตั้ง Wi-Fi 6 การจัดหาฮาร์ดแวร์",
-    "merry_value": "มูลค่าโปรเจกต์: 3.2 แสนบาท",
-    "merry_duration": "ระยะเวลา: 2 สัปดาห์"
+    "chicony_value": "ประเภทโปรเจกต์: โครงสร้างพื้นฐาน IT ระดับองค์กร",
+    "chicony_duration": "ระยะเวลา: 8 สัปดาห์"
   },
   "blog": {
     "title": "บล็อก",

@@ -65,16 +65,16 @@ export default function Home() {
     {
       name: t('client_section.chicony'),
       desc: t('client_section.chicony_desc'),
-      value: 'THB 4.35M',
+      value: null,
       tags: ['Oracle', 'VMware', 'Windows Server'],
       placeholder: false,
     },
     {
-      name: t('client_section.merry'),
-      desc: t('client_section.merry_desc'),
-      value: 'THB 320K',
-      tags: ['Network', 'Hardware'],
-      placeholder: false,
+      name: 'Coming Soon',
+      desc: 'New EEC manufacturing clients onboarding in 2025.',
+      value: null,
+      tags: [],
+      placeholder: true,
     },
     {
       name: 'Coming Soon',

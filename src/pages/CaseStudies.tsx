@@ -70,30 +70,6 @@ export default function CaseStudies() {
             </ul>
           </div>
 
-          {/* Merry */}
-          <div className="bg-white rounded-xl border border-border p-6 md:p-8 shadow-sm">
-            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-              <div>
-                <h2 className="text-xl md:text-2xl font-bold text-primary mb-2">{t('cases.merry_title')}</h2>
-                <p className="text-text-muted">{t('cases.merry_desc')}</p>
-              </div>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
-              <div className="flex items-center gap-2 text-sm text-text">
-                <DollarSign className="w-4 h-4 text-accent" />
-                <span>{t('cases.merry_value')}</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-text">
-                <Clock className="w-4 h-4 text-accent" />
-                <span>{t('cases.merry_duration')}</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-text">
-                <Network className="w-4 h-4 text-accent" />
-                <span>{t('cases.merry_scope')}</span>
-              </div>
-            </div>
-          </div>
-
           {/* Placeholder removed — case study blog post awaiting client approval before publication */}
           <div className="bg-warning/10 rounded-xl border border-warning/30 p-6 md:p-8 text-center">
             <p className="text-warning font-medium">Additional case studies in development</p>

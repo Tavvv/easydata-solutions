@@ -47,9 +47,7 @@
   "client_section": {
     "title": "Trusted by Leading Manufacturers",
     "chicony": "Leading Electronics Manufacturer",
-    "chicony_desc": "THB 4.35M project — Oracle/VMware/Windows Server setup for EEC facility",
-    "merry": "Merry Electronics",
-    "merry_desc": "THB 320K — Network infrastructure and hardware supply"
+    "chicony_desc": "Complete IT infrastructure — Oracle/VMware/Windows Server environment for EEC facility"
   },
   "about": {
     "title": "About Easy Data Solutions",
@@ -77,13 +75,8 @@
     "chicony_title": "Leading Electronics Manufacturer",
     "chicony_desc": "Complete IT infrastructure setup for a new BOI-approved manufacturing facility in the EEC. Delivered Oracle database, VMware cluster, Windows Server environment, and network security.",
     "chicony_scope": "Scope: Oracle DB, VMware ESXi, Windows Server, firewall, network topology",
-    "chicony_value": "Project Value: THB 4,350,000",
-    "chicony_duration": "Duration: 8 weeks",
-    "merry_title": "Merry Electronics",
-    "merry_desc": "Network infrastructure upgrade and hardware procurement for existing factory in the EEC.",
-    "merry_scope": "Scope: Network switch upgrade, Wi-Fi 6 deployment, hardware supply",
-    "merry_value": "Project Value: THB 320,000",
-    "merry_duration": "Duration: 2 weeks"
+    "chicony_value": "Project Type: Enterprise IT Infrastructure",
+    "chicony_duration": "Duration: 8 weeks"
   },
   "blog": {
     "title": "Blog",
