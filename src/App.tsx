@@ -14,6 +14,7 @@ import EECPage from './pages/EECPage';
 import BOIPage from './pages/BOIPage';
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
+import BlogPost from './pages/BlogPost';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -50,6 +51,7 @@ function AppContent() {
           <Route path="/:lang/eec-it-solutions" element={<EECPage />} />
           <Route path="/:lang/boi-incentives" element={<BOIPage />} />
           <Route path="/:lang/blog" element={<Blog />} />
+          <Route path="/:lang/blog/:slug" element={<BlogPost />} />
           <Route path="/:lang/contact" element={<Contact />} />
           <Route path="/" element={<Navigate to="/en" replace />} />
           <Route path="*" element={<Navigate to="/en" replace />} />

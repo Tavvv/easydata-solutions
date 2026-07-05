@@ -165,7 +165,7 @@ export default function Blog() {
                 </h2>
                 <p className="text-text-muted mb-6 leading-relaxed">{posts[0].excerpt}</p>
                 <Link
-                  to={`/${lang}/blog`}
+                  to={`/${lang}/blog/${posts[0].slug}`}
                   className="inline-flex items-center gap-2 text-accent font-semibold hover:underline self-start"
                 >
                   {t('blog.read_more')}
@@ -213,7 +213,7 @@ export default function Blog() {
                   <h3 className="text-lg font-bold text-primary mb-2 leading-snug">{post.title}</h3>
                   <p className="text-sm text-text-muted mb-4 flex-1 leading-relaxed">{post.excerpt}</p>
                   <Link
-                    to={`/${lang}/blog`}
+                    to={`/${lang}/blog/${post.slug}`}
                     className="inline-flex items-center gap-1 text-sm font-semibold text-accent hover:underline"
                   >
                     {t('blog.read_more')}
@@ -262,7 +262,7 @@ export default function Blog() {
                   <h3 className="text-lg font-bold text-primary mb-2 leading-snug">{post.title}</h3>
                   <p className="text-sm text-text-muted mb-4 flex-1 leading-relaxed">{post.excerpt}</p>
                   <Link
-                    to={`/${lang}/blog`}
+                    to={`/${lang}/blog/${post.slug}`}
                     className="inline-flex items-center gap-1 text-sm font-semibold text-accent hover:underline"
                   >
                     {t('blog.read_more')}
